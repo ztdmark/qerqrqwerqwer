@@ -96,14 +96,14 @@ export function AiChat() {
 
       {/* Chat input - sticky at bottom */}
       <div className="flex-shrink-0 w-full border-t border-gray-700 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="w-full max-w-4xl mx-auto px-4 py-3">
+        <div className="w-full max-w-2xl mx-auto px-4 py-3">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative">
               <Input
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message here..."
-                className="w-full bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-400 pr-20 py-4 text-base rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full bg-sidebar border-sidebar-border text-white placeholder:text-gray-400 pr-20 py-4 text-base rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
                 <Button
