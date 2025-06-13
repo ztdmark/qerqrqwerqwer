@@ -64,15 +64,15 @@ const SheetContent = React.forwardRef<
       className={cn(sheetVariants({ side }), className)}
       {...props}
     >
+      {/* Hidden title for accessibility - required by DialogContent */}
+      <SheetPrimitive.Title className="sr-only">
+        Navigation Menu
+      </SheetPrimitive.Title>
       {children}
       <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary text-sidebar-foreground hover:text-sidebar-accent-foreground">
         <XIcon className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
-      {/* Hidden title for accessibility */}
-      <SheetPrimitive.Title className="sr-only">
-        Navigation Menu
-      </SheetPrimitive.Title>
     </SheetPrimitive.Content>
   </SheetPortal>
 ))
