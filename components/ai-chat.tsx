@@ -4,7 +4,6 @@ import * as React from "react"
 import { 
   SendIcon, 
   SparklesIcon, 
-  SearchIcon, 
   PaperclipIcon,
   BookOpenIcon,
   CodeIcon,
@@ -14,13 +13,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 
 const suggestedQuestions = [
   "How does AI work?",
@@ -38,7 +30,6 @@ const quickActions = [
 
 export function AiChat() {
   const [message, setMessage] = React.useState("")
-  const [selectedModel, setSelectedModel] = React.useState("gemini-2.5-flash")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -126,37 +117,6 @@ export function AiChat() {
               </div>
             </div>
           </form>
-
-          {/* Bottom controls */}
-          <div className="flex items-center justify-between mt-3">
-            <div className="flex items-center gap-2">
-              <Select value={selectedModel} onValueChange={setSelectedModel}>
-                <SelectTrigger className="w-48 bg-transparent border-gray-700 text-gray-300 text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent className="bg-gray-800 border-gray-700">
-                  <SelectItem value="gemini-2.5-flash" className="text-gray-300">
-                    Gemini 2.5 Flash
-                  </SelectItem>
-                  <SelectItem value="gpt-4" className="text-gray-300">
-                    GPT-4
-                  </SelectItem>
-                  <SelectItem value="claude-3" className="text-gray-300">
-                    Claude 3
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-              
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-gray-400 hover:text-white hover:bg-white/10"
-              >
-                <SearchIcon className="h-4 w-4 mr-2" />
-                Search
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
