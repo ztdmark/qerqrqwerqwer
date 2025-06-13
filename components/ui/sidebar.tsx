@@ -200,8 +200,13 @@ const Sidebar = React.forwardRef<
             data-mobile="true"
             className={cn(
               "w-[--sidebar-width] p-0 [&>button]:hidden",
-              // Force dark theme colors for mobile
-              "bg-[hsl(240_5.9%_10%)] text-[hsl(240_4.8%_95.9%)] border-[hsl(240_3.7%_15.9%)]"
+              // Force dark theme colors for mobile with proper hover states
+              "bg-[hsl(240_5.9%_10%)] text-[hsl(240_4.8%_95.9%)] border-[hsl(240_3.7%_15.9%)]",
+              // Override any conflicting styles
+              "[&_*]:text-[hsl(240_4.8%_95.9%)]",
+              // Fix button hover states to use dark theme colors
+              "[&_button:hover]:bg-[hsl(240_3.7%_15.9%)] [&_button:hover]:text-[hsl(240_4.8%_95.9%)]",
+              "[&_[data-sidebar=menu-button]:hover]:bg-[hsl(240_3.7%_15.9%)] [&_[data-sidebar=menu-button]:hover]:text-[hsl(240_4.8%_95.9%)]"
             )}
             style={
               {

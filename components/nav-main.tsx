@@ -9,6 +9,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '@/components/ui/sidebar'
 
 export function NavMain({
@@ -20,6 +21,8 @@ export function NavMain({
     icon?: LucideIcon
   }[]
 }) {
+  const { isMobile } = useSidebar()
+
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
@@ -27,14 +30,22 @@ export function NavMain({
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
               tooltip="Quick Create"
-              className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+              className={
+                isMobile
+                  ? "min-w-8 bg-[hsl(217.2_91.2%_59.8%)] text-[hsl(240_5.9%_10%)] duration-200 ease-linear hover:bg-[hsl(217.2_91.2%_59.8%/0.9)] hover:text-[hsl(240_5.9%_10%)] active:bg-[hsl(217.2_91.2%_59.8%/0.9)] active:text-[hsl(240_5.9%_10%)]"
+                  : "min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+              }
             >
               <PlusCircleIcon />
               <span>Quick Create</span>
             </SidebarMenuButton>
             <Button
               size="icon"
-              className="h-9 w-9 shrink-0 group-data-[collapsible=icon]:opacity-0"
+              className={
+                isMobile
+                  ? "h-9 w-9 shrink-0 group-data-[collapsible=icon]:opacity-0 border-[hsl(240_3.7%_15.9%)] bg-transparent text-[hsl(240_4.8%_95.9%)] hover:bg-[hsl(240_3.7%_15.9%)] hover:text-[hsl(240_4.8%_95.9%)]"
+                  : "h-9 w-9 shrink-0 group-data-[collapsible=icon]:opacity-0"
+              }
               variant="outline"
             >
               <MailIcon />
