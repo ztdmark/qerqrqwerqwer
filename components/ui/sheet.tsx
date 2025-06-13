@@ -69,6 +69,10 @@ const SheetContent = React.forwardRef<
         <XIcon className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
+      {/* Hidden title for accessibility */}
+      <SheetPrimitive.Title className="sr-only">
+        Navigation Menu
+      </SheetPrimitive.Title>
     </SheetPrimitive.Content>
   </SheetPortal>
 ))
